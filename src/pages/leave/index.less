@@ -1,0 +1,100 @@
+
+
+.leave{
+    width:100%;
+    height: 100%;
+    font-family: Georgia, sans-serif;
+    /deep/ .w-e-panel-container{
+        left:0;
+    }
+    .banner{
+        height: 542px;
+        background: url('../../assets/leave/leave.png') no-repeat;
+        background-size:100% 100%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        letter-spacing: 10px;
+        color: #fff;
+    }
+    .editor{
+        margin-top: 20px;
+    }
+    h1{
+        position: relative;
+    }
+    .button{
+        background-color: #333;
+        border-color: #333;
+        color: #FFFFFF;
+        opacity: 1;
+        margin-top: 20px;
+
+    }
+    h1::after{
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        content: "";
+        left: 50%;
+        margin-left: -31px;
+        bottom: -30px;
+        background: #00c2ff;
+    }
+    .content{
+        width:1170px;
+        margin:30px auto;
+    }
+    h2,h3{
+        font-family: "Merriweather Sans", "Helvetica", Arial, sans-serif;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #333333;
+        display: inline-block;
+    }
+    h2{
+        border-bottom:3px solid #51cbce;
+        padding-bottom:10px;
+        
+    }
+    .leaverList{
+        padding-top:20px;
+    }
+    .leaverListItem{
+        margin-bottom: 30px;
+        display: flex;
+        .phone{
+            width:60px;
+            height: 60px;
+            border-radius: 100%;
+            margin-right:30px;
+            overflow: hidden;
+            img{
+                width:100%;
+                height: 100%;
+            }
+        }
+        .leaverContent{
+            flex: 1;
+            h4{
+                margin-bottom: 5px;
+                color: #51cbce;
+            }
+            p{
+                display: inline-block;
+                padding-bottom: 15px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                font-size: 0.875rem;
+                margin-bottom: 2rem;
+                line-height: 1;
+            }
+            div{
+                margin: 0px;
+                display: block;
+                font-size: 12px;
+            }
+        }
+
+    }
+
+}

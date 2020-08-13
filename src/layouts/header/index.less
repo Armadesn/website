@@ -9,6 +9,12 @@
     // translate: all 1s;
     transition: all 0.6s linear;
 }
+
+:global {
+    .ant-dropdown{
+      z-index:99999999999999999999;
+    }
+  }
 .search{
     float: right;
     margin: 14px 0 11px;
@@ -24,9 +30,16 @@
             // text-shadow: 5px 5px 5px #FF0000;
             font-size: 16px;
             font-family: miranafont,"Hiragino Sans GB",STXihei,"Microsoft YaHei",SimSun,sans-serif;
+            text-decoration: none;
         }
         a:hover{
             color: #fff;
+        }
+        i{
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            margin-top: 3px;
         }
     }
     
@@ -46,5 +59,8 @@
     box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
     .search-btn span{
         color: #000!important;
+    }
+    i{
+        color: #000;
     }
 }

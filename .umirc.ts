@@ -8,7 +8,8 @@ const config: IConfig =  {
       path: '/',
       component: '../layouts/index',
       routes: [
-        { path: '/', component: '../pages/index' }
+        { path: '/', component: '../pages/index' },
+        { path: '/leave', component: '../pages/leave/index' }
       ]
     }
   ],
@@ -37,6 +38,11 @@ const config: IConfig =  {
           /components\//,
         ],
       },
+      locale: {
+        default: 'en-US',
+        baseNavigator: true, 
+        antd: true 
+      }
     }],
   ],
 }
