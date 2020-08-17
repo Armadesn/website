@@ -1,40 +1,87 @@
 import React from 'react';
 import styles from './index.less';
-import E from 'wangeditor'
 import { Button } from 'antd';
+import { WOW } from 'wowjs'
 import phone from '../../assets/home/aver.jpg'
+import { FormattedMessage } from 'umi-plugin-react/locale'
+import WangEditor from '../../components/editorComponents/index'
+
+interface list {
+    name:string,
+    time:string,
+    content:string
+}
+
+interface state {
+    list:list[]
+}
+interface currentValue {
+    value :string,
+    text: string
+}
 export default class extends React.PureComponent {
-    componentDidMount(){
-        console.log(E)
-        var editor = new E('#editor')
-        editor.customConfig.menus = [
-            'emoticon'
+
+    myRef = React.createRef();
+
+    state : state = {
+        list : [
+            {
+                name:'亚宁',
+                time:'2020-01-11 14:44',
+                content:'勤洗手，戴口罩，少出门，勤消毒，多运动，少聚集。'
+            }
         ]
-        editor.create()
+    }
+
+    componentDidMount(){
+        this.wowInit()
+    }
+    wowInit(){
+        new WOW().init();
+    }
+    getComment(){
+        const current = this.myRef.current as currentValue
+        const { list } = this.state
+        this.setState({
+            list:[ ...list, {
+                name:'亚宁',
+                time:'2020-01-11 14:44',
+                content: current.text
+            }]
+        })
     }
     render(){
+        console.log(this)
+        const { list } = this.state
         return (
             <div className={styles.leave}>
                 <div className={styles.banner}>
-                    <h1>留言板</h1>
+                    <h1 className='wow fadeInUp'><FormattedMessage id="leave.message"></FormattedMessage></h1>
                 </div>
                 <div className={styles.content}>
-                    <div><h2>Comments</h2></div>
+                    <div><h2><FormattedMessage id="leave.Comments"></FormattedMessage></h2></div>
                     <div className={styles.leaverList}>
-                        <div className={styles.leaverListItem}>
-                            <div className={styles.phone}><img src={phone} alt="phone"/></div>
-                            <div className={styles.leaverContent}>
-                                <h4>亚宁</h4>
-                                <p>2020-01-11 14:44 - Reply</p>
-                                <div>勤洗手，戴口罩，少出门，勤消毒，多运动，少聚集。</div>
-                            </div>
-                        </div>
+                        {
+                            list.map((item : list,index: number) => { 
+                                return (
+                                    <div className={styles.leaverListItem + ' wow fadeInUp'} key={index}>
+                                        <div className={styles.phone}><img src={phone} alt="phone"/></div>
+                                        <div className={styles.leaverContent}>
+                                            <h4>{item.name}</h4>
+                                            <p>{item.time} - Reply</p>
+                                            <div>{item.content}</div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                        
                     </div>
-                    <div><h3>Leave a Reply</h3></div>
+                    <div><h3><FormattedMessage id="leave.LeaveReply"></FormattedMessage></h3></div>
                     <div className={styles.editor}>
-                        <div id='editor' className={styles.editorContent}></div>
+                        <WangEditor ref={this.myRef}></WangEditor>
                     </div>
-                    <Button  className={styles.button}>Post Comment</Button>
+                    <Button  className={styles.button} onClick={this.getComment.bind(this)}>Post Comment</Button>
                 </div>
             </div>
         )

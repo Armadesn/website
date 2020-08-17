@@ -5,13 +5,13 @@ import photo from '../assets/home/aver.jpg'
 import { DownOutlined, CopyOutlined,   AliwangwangOutlined,  DotChartOutlined,  OrderedListOutlined,   FormOutlined, IeOutlined,   QqOutlined,  BgColorsOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import { articleInfo } from '../lib/article'
+import { FormattedMessage, setLocale } from 'umi-plugin-react/locale'
 
 export default class extends React.PureComponent {
     componentDidMount(){
         new WOW().init();
     }
     goNext(){
-        // const app = document.getElementById('app') as HTMLElement
         window.scrollTo({
             top: document.body.clientHeight,
             behavior: "smooth"
@@ -23,20 +23,22 @@ export default class extends React.PureComponent {
                 <div className={styles.banner}>
                     <div  className={styles.header}>
                         <img className={styles.photo + ' wow pulse'} src={photo} alt=""/>
-                        <p className="wow zoomIn">yaning wang</p>
-                        <p className="wow zoomIn">剑气纵横三万里,一剑光寒十九洲</p>
+                        <p className="wow zoomIn"><FormattedMessage  id="index.name"></FormattedMessage></p>
+                        <p className="wow zoomIn"><FormattedMessage  id="index.desc"></FormattedMessage></p>
                     </div>
                     <a className={styles.next + ' wow fadeInUp'} onClick={this.goNext}>
                         <DownOutlined />
                     </a>
                 </div>
+                {/*  */}
                 <div className={styles.netTick}>
                     <div className={styles.article + ' wow fadeInDown'}>
                         <div className={styles.iner}>
-                            <h1>热门文章</h1>
-                            <p>很想给你写封信,告诉你这里的天气.昨夜的那场电影,还有我的心情.</p>
+                            <h1><FormattedMessage  id="index.articles"></FormattedMessage></h1>
+                            <p><FormattedMessage  id="index.articlesDesc"></FormattedMessage></p>
                         </div>
                     </div>
+                    {/* index. */}
                     <div className={styles.list}>
                         {
                             articleInfo.map( item => {
@@ -77,11 +79,11 @@ export default class extends React.PureComponent {
                         <div className={styles.footerItem}>
                             <h2>相关链接</h2>
                             <ul>
-                                <li><CopyOutlined />博文</li>
-                                <li><AliwangwangOutlined />留言</li>
-                                <li><DotChartOutlined />资源</li>
-                                <li><OrderedListOutlined />日记</li>
-                                <li><FormOutlined />归档</li>
+                                <li><CopyOutlined /><FormattedMessage  id="layout.dashboard"></FormattedMessage></li>
+                                <li><AliwangwangOutlined /><FormattedMessage  id="layout.leave"></FormattedMessage></li>
+                                <li><DotChartOutlined /><FormattedMessage  id="layout.diary"></FormattedMessage></li>
+                                <li><OrderedListOutlined /><FormattedMessage  id="layout.resource"></FormattedMessage></li>
+                                <li><FormOutlined /><FormattedMessage  id="layout.pigeonhole"></FormattedMessage></li>
                             </ul>
                         </div>
                         <div className={styles.footerItem}>
