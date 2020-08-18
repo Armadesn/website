@@ -1,0 +1,30 @@
+.banner{
+    height: 524px;
+    background: url('../../assets/home/22.jpg') no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    h1{
+        position: relative;
+        color:#fff;
+    }
+    h1::after{
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        content: "";
+        left: 50%;
+        margin-left: -20px;
+        bottom: -30px;
+        background: #00c2ff;
+    }
+    
+}
+.content{
+    padding-top:50px;
+}
+:global{
+    .ant-timeline-item {
+        padding: 0 0 40px;
+    }
+}

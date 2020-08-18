@@ -9,7 +9,8 @@ const config: IConfig =  {
       component: '../layouts/index',
       routes: [
         { path: '/', component: '../pages/index' },
-        { path: '/leave', component: '../pages/leave/index' }
+        { path: '/leave', component: '../pages/leave/index' },
+        { path: '/diary', component: '../pages/diary/index' }
       ]
     }
   ],

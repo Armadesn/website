@@ -33,7 +33,7 @@ const HeaderLayout: React.FC = () => {
             <div className={styles.search}>
                 <div className={styles['search-item']}><a href='/'><FormattedMessage id="layout.dashboard"></FormattedMessage></a></div>
                 <div className={styles['search-item']}><a href='/leave'><FormattedMessage id="layout.leave"></FormattedMessage></a></div>
-                <div className={styles['search-item']}><a><FormattedMessage id="layout.diary"></FormattedMessage></a></div>
+                <div className={styles['search-item']}><a href='/diary'><FormattedMessage id="layout.diary"></FormattedMessage></a></div>
                 <div className={styles['search-item']}><a><FormattedMessage id="layout.resource"></FormattedMessage></a></div>
                 <div className={styles['search-item']}><a><FormattedMessage id="layout.pigeonhole"></FormattedMessage></a></div>
 
