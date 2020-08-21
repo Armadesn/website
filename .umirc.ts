@@ -14,6 +14,13 @@ const config: IConfig =  {
       ]
     }
   ],
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8000',
+      pathRewrite: { '^/api': '' },
+      changeOrigin: true
+    }
+  },
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {

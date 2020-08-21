@@ -5,7 +5,7 @@ import { WOW } from 'wowjs'
 import phone from '../../assets/home/aver.jpg'
 import { FormattedMessage } from 'umi-plugin-react/locale'
 import WangEditor from '../../components/editorComponents/index'
-
+import Http from '../../lib/http'
 interface list {
     name:string,
     time:string,
@@ -49,6 +49,13 @@ export default class extends React.PureComponent {
                 content: current.text
             }]
         })
+        Http({
+            method:'get',
+            url:'/string',
+          })
+            .then(function(response) {
+                
+          });
     }
     render(){
         console.log(this)
